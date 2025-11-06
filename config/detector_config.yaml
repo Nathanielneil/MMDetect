@@ -1,0 +1,65 @@
+# 多模态检测器配置文件
+
+# 语音检测器配置
+voice_detector:
+  model_path: "models/vosk-model-small-cn"
+  sample_rate: 16000
+  confidence_threshold: 0.7
+  continuous_mode: true
+  language: "zh-cn"
+
+# 手势检测器配置
+gesture_detector:
+  min_detection_confidence: 0.7
+  min_tracking_confidence: 0.5
+  max_num_hands: 1
+  camera_index: 0
+  frame_width: 640
+  frame_height: 480
+  enable_visualization: true  # 启用可视化（会有Qt警告但不影响功能）
+
+# 图像检测器配置
+image_detector:
+  model_path: "models/yolov8n.pt"
+  confidence_threshold: 0.6
+  iou_threshold: 0.45
+  camera_index: 0  # 修改为0，与手势检测器共用摄像头
+  frame_width: 640
+  frame_height: 480
+  enable_visualization: false  # 设置为false避免Qt线程问题
+  target_classes:  # 关注的目标类别
+    - landing_pad
+    - person
+    - car
+    - stop_sign
+
+# 鼠标/触屏检测器配置
+mouse_detector:
+  min_path_length: 20
+  simplify_epsilon: 10
+  scale_factor: 0.01  # 像素到米的转换
+  canvas_width: 800
+  canvas_height: 600
+  enable_visualization: false  # 设置为false避免Qt线程问题
+
+# 指令管理器配置
+command_manager:
+  buffer_size: 100
+  confidence_threshold: 0.5
+  fusion_strategy: "highest"  # latest, highest, voting, priority
+  fusion_window: 0.5  # 秒
+  enable_history: true
+  max_history_size: 1000
+
+# 性能配置
+performance:
+  target_fps: 30
+  max_latency_ms: 200
+  enable_profiling: false
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_file: "logs/system.log"
+  max_log_size_mb: 100
+  backup_count: 5

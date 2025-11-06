@@ -1,0 +1,11 @@
+names:
+- H
+- T
+- F
+- S
+- L
+nc: 5
+path: /home/ubuntu/NGW/intern/MMDect/symbol_dataset
+test: images/test
+train: images/train
+val: images/val

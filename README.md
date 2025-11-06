@@ -2,7 +2,7 @@
 
 基于ROS/Gazebo的多模态指令识别与无人机集群控制系统
 
-[![Version](https://img.shields.io/badge/version-1.0-blue.svg)](https://github.com/)
+[![Version](https://img.shields.io/badge/version-6.3-blue.svg)](https://github.com/)
 [![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](LICENSE)
 
